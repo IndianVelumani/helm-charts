@@ -134,12 +134,12 @@ spec:
           {{- end }}
           {{- end }}
           volumeMounts:
-            - name: proc
-              mountPath: /host/proc
-              {{- with .Values.hostProcFsMount.mountPropagation }}
-              mountPropagation: {{ . }}
-              {{- end }}
-              readOnly:  true
+            # - name: proc
+            #   mountPath: /host/proc
+            #   {{- with .Values.hostProcFsMount.mountPropagation }}
+            #   mountPropagation: {{ . }}
+            #   {{- end }}
+            #   readOnly:  true
             - name: sys
               mountPath: /host/sys
               {{- with .Values.hostSysFsMount.mountPropagation }}
@@ -265,9 +265,9 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: proc
-          hostPath:
-            path: /proc
+        # - name: proc
+        #   hostPath:
+        #     path: /proc
         - name: sys
           hostPath:
             path: /sys
